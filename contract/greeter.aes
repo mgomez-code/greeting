@@ -1,0 +1,93 @@
+contract Greeter =
+  record state = {  // Valores claves a guardar
+    greeter_oracle : oracle(string, string),
+    greets         : map(address, oracle_query(string, string))}
+
+  stateful entrypoint init() : state =  //Función de Inicio
+    let greeter_oracle : oracle(string, string) = register_oracle()
+    { greeter_oracle = greeter_oracle, greets = {}  }
+
+  entrypoint get_oracle(): oracle(string, string) =  //Función consultar dirección del oráculo
+    state.greeter_oracle
+
+  entrypoint get_balance() : int =  //Función consultar balance del oráculo
+    Contract.balance
+
+  stateful entrypoint register_oracle() : oracle(string, string) =  //Función registrar el oráculo
+    Oracle.register(Contract.address, 10, RelativeTTL(200))
+
+  payable stateful entrypoint greet_oracle(message : string) : bool =  //Función pagar consulta del oráculo
+    let val = Call.value
+    if(val != 10)
+      false
+    else
+      let query : oracle_query(string, string) =
+        Oracle.query(state.greeter_oracle, message, 10, RelativeTTL(50), RelativeTTL(50))
+      put(state{greets[Call.caller] = query })
+      respond_to_greet()
+      true
+
+  entrypoint get_address(direccion : address) : oracle_query(string, string) =  //Función consulta id de consulta
+    switch(Map.lookup(direccion, state.greets))
+      None    => abort("No Resitrado")
+      Some(x) => x
+
+  stateful entrypoint respond_to_greet() =  //Función responder la consulta del oráculo
+    let query = get_address(Call.caller)
+    let greet : string = Oracle.get_question(state.greeter_oracle, query)
+    let greet_is_valid : bool = greet == "Hello" || greet == "Hi" || greet == "Greetings"
+    if(greet_is_valid)
+      let response : string = greet
+      let respuesta : string = String.concat(greet, " Friend") 
+      Oracle.respond(state.greeter_oracle, query, respuesta)
+    else 
+       Oracle.respond(state.greeter_oracle, query, "")
+ 
+  stateful entrypoint get_to_greet() =    //Función mostrar la respuesta del oráculo
+    let query = get_address(Call.caller)
+    Oracle.get_answer(state.greeter_oracle,query)
+
+  //Funciones básicas
+  
+  stateful entrypoint contract_creator() = //dirección que creo el contracto
+    Contract.creator
+
+  stateful entrypoint contract_address() = //dirección del contracto
+    Contract.address
+
+  stateful entrypoint contract_balance() = //balance del contracto
+    Contract.balance
+
+//******************************//
+//Call Static Function
+//******************************// 
+//get_oracle       	--> obtiene la dirección del oraculo
+//get_balance 		--> obtiene el balance del oraculo
+//queryFee		--> obtiene el ID de consulta del oraculo
+//get_to_greet		--> obtiene el ID de consulta del oraculo
+//******************************//
+
+//******************************//
+//Call Function 
+//******************************//
+//register_oracle	--> obtiene el ID de consulta del oraculo
+//greet_oracle		--> obtiene el ID de consulta del oraculo
+//respond_to_greet	--> obtiene el ID de consulta del oraculo
+//getQuestion		--> Obtiene la pregunta que le hicieron al orácula según id. argumentos [OracleAddress, OracleID]
+//hasAnswer		--> Valida si la pregunta tiene respuesta, respondiento un True o Falso. argumentos [OracleAddress, OracleID]
+//******************************//
+
+//******************************//
+//Funciones de uso general
+//******************************//
+//contract_creator	--> obtiene la dirección con la que se creo el contrato
+//contract_address	--> obtiene la dirección del contrato
+//contract_balance  	--> obtiene el balance del oraculo
+//******************************//
+
+//******************************//
+//Direcciones usadas para la compilación y deploy del contrato
+//******************************//
+//public key : ak_2nniXZjP6vVDZCSpwkvXjbzCqKqHrXKQgv4ug2VnurumNE1Gfk
+//private key: f9f43aa1d70f59a1dd854d1ac51837d2b2b67f61cbc9b1eef276eab40147e6e8eba9f018046338e2a873dc3d0cdb75cc087906198fe629f9d9a1712f3ddf2d3b
+//******************************//
