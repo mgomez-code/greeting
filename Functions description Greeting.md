@@ -3,20 +3,18 @@
 ## Call Static Function
 ******************************
 ```sh
-get_oracle  --> obtiene la dirección del oraculo
-get_balance --> obtiene el balance del oraculo
-queryFee  --> obtiene el ID de consulta del oraculo
-get_to_greet  --> obtiene el ID de consulta del oraculo
+get_oracle	--> Consulta dirección del oráculo
+get_balance 	--> Obtiene el balance del oráculo.argumentos [OracleAddress : string]
+queryFee	--> Obtiene pago mínimo para una consulta del oráculo.argumentos [OracleAddress : string]
+get_to_greet	--> Consulta la pregunta que le hicieron al orácula según id. argumentos [OracleAddress : string, OracleID : string]
+respond_to_greet--> Muestra la respuesta a una pregunta. argumentos [OracleAddress : string, OracleID : string]
 ```
 ******************************
 ## Call Function
 ******************************
 ```sh
-register_oracle --> obtiene el ID de consulta del oraculo
-greet_oracle  --> obtiene el ID de consulta del oraculo
-respond_to_greet  --> obtiene el ID de consulta del oraculo
-getQuestion --> Obtiene la pregunta que le hicieron al orácula según id. argumentos [OracleAddress, OracleID]
-hasAnswer --> Valida si la pregunta tiene respuesta, respondiento un True o Falso. argumentos [OracleAddress, OracleID]
+register_oracle	--> Función para Registrar el Oraculo. argumentos [qfee : int,  rttl : int]
+get_address	--> Obtiene el ID de consulta del oraculo. argumentos [OracleAddress : string]
 ```
 ******************************
 ## General-Purpose functions
@@ -27,7 +25,7 @@ contract_address  --> obtiene la dirección del contrato
 contract_balance  --> obtiene el balance del oraculo
 ```
 ******************************
-## Addresses used for compilation and deploy of the contract
+## Key used for compilation and deploy of the contract
 ******************************
 ```sh
 public key : ak_2nniXZjP6vVDZCSpwkvXjbzCqKqHrXKQgv4ug2VnurumNE1Gfk
