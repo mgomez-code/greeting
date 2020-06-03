@@ -1,5 +1,5 @@
 ## Functions description AddressBook
-******************************
+
 ## Call Static Function
 ******************************
 ```sh
