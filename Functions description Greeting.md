@@ -20,9 +20,9 @@ get_address	--> Obtiene el ID de consulta del oraculo. argumentos [OracleAddress
 ## General-Purpose functions
 ******************************
 ```sh
-contract_creator	--> obtiene la dirección con la que se creo el contrato
-contract_address  --> obtiene la dirección del contrato
-contract_balance  --> obtiene el balance del oraculo
+contract_creator--> obtiene la dirección con la que se creo el contrato
+contract_address--> obtiene la dirección del contrato
+contract_balance--> obtiene el balance del oraculo
 ```
 ******************************
 ## Key used for compilation and deploy of the contract
