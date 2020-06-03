@@ -4,19 +4,19 @@
 ******************************
 ```sh
 get_oracle       	--> obtiene la dirección del oraculo
-get_balance 		--> obtiene el balance del oraculo
-queryFee		    --> obtiene el ID de consulta del oraculo
-get_to_greet		--> obtiene el ID de consulta del oraculo
+get_balance 		  --> obtiene el balance del oraculo
+queryFee		      --> obtiene el ID de consulta del oraculo
+get_to_greet		  --> obtiene el ID de consulta del oraculo
 ```
 ******************************
 ## Call Function
 ******************************
 ```sh
-register_oracle	--> obtiene el ID de consulta del oraculo
-greet_oracle		--> obtiene el ID de consulta del oraculo
+register_oracle	  --> obtiene el ID de consulta del oraculo
+greet_oracle		  --> obtiene el ID de consulta del oraculo
 respond_to_greet	--> obtiene el ID de consulta del oraculo
-getQuestion		--> Obtiene la pregunta que le hicieron al orácula según id. argumentos [OracleAddress, OracleID]
-hasAnswer		--> Valida si la pregunta tiene respuesta, respondiento un True o Falso. argumentos [OracleAddress, OracleID]
+getQuestion		    --> Obtiene la pregunta que le hicieron al orácula según id. argumentos [OracleAddress, OracleID]
+hasAnswer		      --> Valida si la pregunta tiene respuesta, respondiento un True o Falso. argumentos [OracleAddress, OracleID]
 ```
 ******************************
 ## General-Purpose functions
@@ -24,7 +24,7 @@ hasAnswer		--> Valida si la pregunta tiene respuesta, respondiento un True o Fal
 ```sh
 contract_creator	--> obtiene la dirección con la que se creo el contrato
 contract_address	--> obtiene la dirección del contrato
-contract_balance  	--> obtiene el balance del oraculo
+contract_balance  --> obtiene el balance del oraculo
 ```
 ******************************
 ## Addresses used for compilation and deploy of the contract
