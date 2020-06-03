@@ -16,6 +16,9 @@ contract Greeter =
   stateful entrypoint register_oracle() : oracle(string, string) =  //Función registrar el oráculo
     Oracle.register(Contract.address, 10, RelativeTTL(200))
 
+  entrypoint queryFee() : int =  //Consulta pago mínimo para una consulta del oráculo
+    Oracle.query_fee(state.greeter_oracle)
+
   payable stateful entrypoint greet_oracle(message : string) : bool =  //Función pagar consulta del oráculo
     let val = Call.value
     if(val != 10)
@@ -46,7 +49,7 @@ contract Greeter =
   stateful entrypoint get_to_greet() =    //Función mostrar la respuesta del oráculo
     let query = get_address(Call.caller)
     Oracle.get_answer(state.greeter_oracle,query)
-https://github.com/mgomez-code/greeting/blob/master/Functions%20description%20AddressBook.md
+
   //Funciones básicas
   
   stateful entrypoint contract_creator() = //dirección que creo el contracto
