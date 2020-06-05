@@ -1,6 +1,4 @@
 # Oracle Greeting
-Tutorial Greeting
-# Oracle
 # Tutorial Oracle
 ### ¿Cómo funciona?  
 
