@@ -12,14 +12,12 @@ Ejemplo de contrato inteligente que permite interactuar con las funcionesde oper
 #####  3.- Configure la la red en baseaepp. In setting > node on: Network seleccione testnet.
 #####  4.- Selecciones una cuenta.
 #####  5.- Obtener token de pruebas.
-        5.1- Ingresar al faucet a través del siguiente enlace usando el navegador de su preferencia: 
-   - [Fauce](https://testnet.faucet.aepps.com/)
+        5.1- Ingresar al faucet a través del siguiente enlace usando el navegador de su preferencia:(https://testnet.faucet.aepps.com/)
         5.2- Copiar dirección de la wallet desde el base.aepp.
         5.3- Pegar Dirección de wallet en el campo destinado para ello en el faucet.
         5.4- Hacer clic en el botón identificado como Top UP.
 #####  6.- Verificar los token en la wallet del base aepp.
-#####  7.- Ingresar al Browser de base aepp y copiar la siguiente 
-url:(https://mgomez-code.github.io/greeting/)
+#####  7.- Ingresar al Browser de base aepp y copiar la siguiente url:(https://mgomez-code.github.io/greeting/)
 #####  8.- Pulsar el boton de comando identificado como Fee Query. Si se obtinene el valor del Fee. Ir al paso 13
 #####  9.- Si no se obtiene el valor del Fee, nos indica que al momento de la prueba el TTL del oraculo ha expirado.
 #####  10.- Pulsar el boton de comando identificado como Register Oracle. se vera un mensaje de register oracle en pantalla.
