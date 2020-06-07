@@ -29,3 +29,4 @@ url:(https://mgomez-code.github.io/greeting/)
 #####  15.- Pulsar el boton de comando para confirmar el pago de la consulta al Oracle.
 #####  16.- Se verifica que en pantalla salga la respuesta Answera: Hello Friend
 #####  17.- Repetimos los pasos del 13 al 16 para los dos saludos restantes.
+  - [Vídeo de Funcionamiento del Aplicativo](https://youtu.be/KXVgPznlQps)
